@@ -1,0 +1,1418 @@
+{
+  "baseline": "User-uploaded Code.gs V65 and Index.html with V112 markers; source hashes are authoritative.",
+  "stage": "Milestone 1: native React register, detail, summary and history; remaining workflows not migrated.",
+  "files": [
+    {
+      "name": "Code.gs",
+      "bytes": 599828,
+      "sha256": "a0a5c2f38dc06434d3f8dc5286d19311c5a9446e8603dd63f7942b44e6387769",
+      "lines": 11634,
+      "functions": [
+        "doGet",
+        "getSpreadsheet_",
+        "cleanString_",
+        "isBlank_",
+        "isYes_",
+        "uniqueSorted_",
+        "getMasterSheet_",
+        "migrateMasterForSubDepartment_",
+        "validateMasterSchema_",
+        "readMasterRecords_",
+        "getRecords_",
+        "getFrameworkControlSheet_",
+        "getLookupSheet_",
+        "getLookupValues_",
+        "getDependentLookupMap_",
+        "getDependentLookupValues_",
+        "buildLookupMap_",
+        "getFrameworkControlHeaderMap_",
+        "isFrameworkControlActive_",
+        "readFrameworkControlMaster_",
+        "getFrameworkControls_",
+        "getCommonControlAreas_",
+        "getControlsByCommonControlArea_",
+        "getFrameworkControlById_",
+        "getFilterOptions_",
+        "parseRecordDate_",
+        "dateKey_",
+        "countByField_",
+        "countOpenDepartments_",
+        "getDashboardData_",
+        "formatGeneratedAt_",
+        "buildWatchlist_",
+        "getRecoveredRecordTypeFromHistory_",
+        "getRecordById_",
+        "getOrCreateSheetWithHeaders_",
+        "getRecordDeletionSheet_",
+        "getDeletedRecordIdMap_",
+        "deleteComplianceRecord_",
+        "getDeletedRecordsForRecovery_",
+        "restoreComplianceRecord_",
+        "getRecordHistorySheet_",
+        "getDraftSheet_",
+        "appendRecordHistoryEntries_",
+        "getRecordHistory_",
+        "findRecordRowById_",
+        "buildMergedUpdatePayload_",
+        "updateComplianceRecord_",
+        "generateNextDraftId_",
+        "newDraftId_",
+        "findDraftRowById_",
+        "parseDraftRow_",
+        "saveComplianceDraft_",
+        "getComplianceDrafts_",
+        "getComplianceDraftById_",
+        "deleteComplianceDraft_",
+        "markComplianceDraftSubmitted_",
+        "getLogoDataUrl_",
+        "getConfig_",
+        "normalizeRecordTypeKey_",
+        "getSupportedRecordTypes_",
+        "getApplicableFieldsForType_",
+        "getNonApplicableFields_",
+        "getRecordTypeConfig_",
+        "getCreateRecordRequiredFields_",
+        "getCreateRecordLookupMap_",
+        "normalizeLookupComparisonValues_",
+        "lookupValuesEqual_",
+        "isConditionallyDisabledField_",
+        "validateLookupValueAgainstCurrentMaster_",
+        "validateUpdateRecordLookups_",
+        "validateCreateRecordLookups_",
+        "getCurrentUserEmail_",
+        "recordIdPrefixForType_",
+        "recordIdYear_",
+        "generateNextRecordId_",
+        "recordIdRememberCommitted_",
+        "getNextRecordIdPreview_",
+        "getCurrentYear_",
+        "calculateRiskScore_",
+        "normalizeRecordFieldValue_",
+        "applyConditionalFieldDependencies_",
+        "applyEvidenceRequiredDependency_",
+        "createComplianceRecord_",
+        "testCreateRecordAPI_",
+        "testCreateComplianceRecord_",
+        "testMasterSheet_",
+        "testLookupSheet_",
+        "testDashboardData_",
+        "testFilterOptions_",
+        "testLogo_",
+        "testRiskCalculation_",
+        "testFrameworkControlMaster_",
+        "testDynamicLookupIntegration_",
+        "runFinalSystemTest_",
+        "testCrossFrameworkControlMapping_",
+        "setupMakerCheckerSheets_",
+        "getChangeRequestSheet_",
+        "getApprovalMatrixSheet_",
+        "generateNextChangeRequestId_",
+        "getActualCurrentUserEmail_",
+        "normalizeEmail_",
+        "isActiveApprovalRule_",
+        "getApprovalRuleForRecord_",
+        "getPendingChangeRequestForRecord_",
+        "normalizeMakerCheckerComparisonValue_",
+        "normalizeMakerCheckerDate_",
+        "makerCheckerValuesEqual_",
+        "buildChangeRequestComparison_",
+        "submitRecordChangeRequest_",
+        "approvalEmailEscape_",
+        "buildChangeRequestApprovalEmail_",
+        "sendChangeRequestApprovalEmail_",
+        "readChangeRequestRows_",
+        "getChangeRequestById_",
+        "canCurrentUserReviewRequest_",
+        "getChangeRequestsForCurrentUser_",
+        "parseJsonObjectSafe_",
+        "getChangeRequestDetails_",
+        "updateChangeRequestRow_",
+        "assertChangeRequestSnapshotIsCurrent_",
+        "approveRecordChangeRequest_",
+        "rejectRecordChangeRequest_",
+        "returnRecordChangeRequest_",
+        "sendChangeRequestDecisionEmail_",
+        "runMakerCheckerSystemTest_",
+        "rbacAllowedEmail_",
+        "rbacIdentity_",
+        "rbacRows_",
+        "rbacEmptyPermissions_",
+        "rbacNormalizePermissions_",
+        "rbacBuiltInRoleSeeds_",
+        "rbacSafeJsonArray_",
+        "rbacNormalizeRole_",
+        "rbacReadRoleDefinitions_",
+        "rbacGetRoleDefinition_",
+        "rbacEnsureRoleDefinitionsSheet_",
+        "rbacCoreAdminPermissions_",
+        "rbacPermissionAllowed_",
+        "rbacAccessForEmail_",
+        "rbacRequire_",
+        "rbacRequirePermission_",
+        "rbacRequireAnyPermission_",
+        "getAccessContext_",
+        "dashboardCredentialSheet_",
+        "dashboardParseHistory_",
+        "dashboardCredentialRows_",
+        "dashboardCredentialForEmail_",
+        "dashboardPasswordPepper_",
+        "dashboardPasswordNormalizeForBlocklist_",
+        "dashboardPasswordIdentityTokens_",
+        "dashboardPasswordHasObviousSequence_",
+        "dashboardPasswordHasDateLikePattern_",
+        "dashboardPasswordPolicy_",
+        "dashboardPasswordHash_",
+        "dashboardPasswordEqual_",
+        "dashboardPasswordExpiryIso_",
+        "dashboardCredentialExpiry_",
+        "dashboardCredentialExpired_",
+        "dashboardPasswordMatchesStored_",
+        "dashboardAssertPasswordNotReused_",
+        "dashboardWriteCredential_",
+        "dashboardCredentialSecurityUpdate_",
+        "dashboardCredentialLocked_",
+        "dashboardCredentialLockMessage_",
+        "createDashboardPassword",
+        "verifyDashboardPassword",
+        "changeDashboardPassword_",
+        "adminResetDashboardPassword_",
+        "getLoginGatewayContext",
+        "rbacAudit_",
+        "setupDashboardRbac_",
+        "listDashboardUsers_",
+        "listRoleDefinitions_",
+        "rbacValidateRoleScope_",
+        "saveDashboardUser_",
+        "rbacRoleRow_",
+        "saveRoleDefinition_",
+        "initializeCustomRoleRbac_",
+        "initializeRbacOnce_",
+        "reassignPendingChangeRequest_",
+        "getReturnedRequestForRevision_",
+        "deleteDashboardUser_",
+        "deleteDashboardUserV9_",
+        "normalizeCrossFrameworkName_",
+        "crossFrameworkKey_",
+        "crossFrameworkHeaderKey_",
+        "findCrossFrameworkMatrixHeaderRow_",
+        "getCrossFrameworkMatrixHeaderMap_",
+        "readCrossFrameworkMatrix_",
+        "buildFrameworkControlIndex_",
+        "crossFrameworkReferenceForControl_",
+        "makeMappedControl_",
+        "getCrossFrameworkExplorerBootstrap_",
+        "getCrossFrameworkMappings_",
+        "testCrossFrameworkExplorerV16_",
+        "frameworkControlAliasKeyV18_",
+        "getFrameworkControlsAliasSafe_",
+        "splitFrameworkMappingRefsV20_",
+        "normalizeFrameworkMappingRefV20_",
+        "frameworkReferenceBundleV20_",
+        "intersectFrameworkRefsV20_",
+        "frameworkMappedReferenceV20_",
+        "mappedControlFromMasterV20_",
+        "getCrossFrameworkExplorerBootstrapV20_",
+        "getCrossFrameworkMappingsV20_",
+        "testCrossFrameworkExplorerV20_",
+        "getPreviousRecordOptions_",
+        "phase3Value_",
+        "phase3Risk_",
+        "phase3Status_",
+        "phase3IsTerminal_",
+        "phase3IsOpen_",
+        "phase3FrameworkKey_",
+        "phase3FrameworkLabel_",
+        "phase3Date_",
+        "phase3DayKey_",
+        "phase3Overdue_",
+        "phase3PendingEvidence_",
+        "getAnalyticsTimeZone_",
+        "getAnalyticsRecords_",
+        "iamParseDepartments_",
+        "iamDepartmentKey_",
+        "iamDepartmentOffered_",
+        "iamCanReadRecord_",
+        "iamScopeRecords_",
+        "iamRequireRecord_",
+        "iamAssertStorageOwner_",
+        "iamDepartmentCatalog_",
+        "getIAMDepartmentOptions_",
+        "iamValidateDepartments_",
+        "iamSheet_",
+        "iamEvidenceStorageMode_",
+        "iamPrivateFolder_",
+        "initializeIamPhase_",
+        "iamResponseRows_",
+        "iamVisibleResponse_",
+        "iamPublicResponse_",
+        "getIAMWorkspace_",
+        "iamSafeCell_",
+        "iamDecodeEvidence_",
+        "submitIAMResponse_",
+        "reviewIAMResponse_",
+        "getIAMEvidence_",
+        "dashboardScriptSecret_",
+        "dashboardHmac_",
+        "dashboardNormalizeLoginEmail_",
+        "dashboardValidateLoginIdentity_",
+        "getDashboardLoginIdentity",
+        "dashboardSessionSheet_",
+        "dashboardSessionRows_",
+        "dashboardSessionTokenHash_",
+        "dashboardCreateSession_",
+        "dashboardParseSessionToken_",
+        "dashboardRevokeAllSessionsForEmail_",
+        "resumeDashboardSession",
+        "revokeDashboardSession",
+        "loginDashboardWithCredentials",
+        "dashboardResetWithLock_",
+        "dashboardResetSheet_",
+        "dashboardResetRows_",
+        "dashboardResetForEmail_",
+        "dashboardGenerateOtp_",
+        "dashboardOtpHash_",
+        "dashboardResetTokenHash_",
+        "dashboardMaskedEmail_",
+        "requestDashboardPasswordResetOtp",
+        "verifyDashboardPasswordResetOtp",
+        "completeDashboardPasswordReset",
+        "dashboardClientMeta_",
+        "dashboardSecurityAuditSheet_",
+        "dashboardSecurityDetailsJson_",
+        "dashboardSecurityAudit_",
+        "dashboardSecurityAuditRows_",
+        "dashboardSessionUserFallback_",
+        "dashboardSessionPublic_",
+        "getDashboardSecurityCenter_",
+        "adminRevokeDashboardSession_",
+        "getMyDashboardSessions_",
+        "revokeMyDashboardSession_",
+        "revokeOtherDashboardSessions_",
+        "heartbeatDashboardSession",
+        "authorizePhase83MailOnce_",
+        "accessReviewIso_",
+        "accessReviewJsonArray_",
+        "accessReviewEnsureSheet_",
+        "accessReviewSheets_",
+        "accessReviewCycleRows_",
+        "accessReviewItemRows_",
+        "accessReviewCycleName_",
+        "accessReviewLatestPreviousMap_",
+        "accessReviewCredentialMap_",
+        "accessReviewRoleMap_",
+        "accessReviewSameArray_",
+        "accessReviewRiskFlags_",
+        "accessReviewPublicCycle_",
+        "accessReviewPublicItem_",
+        "startAccessReviewCycle_",
+        "getAccessReviewCenter_",
+        "accessReviewUpdateCycleSummary_",
+        "submitAccessReviewDecision_",
+        "accessRequestEnsureSheet_",
+        "accessRequestSheet_",
+        "accessTempGrantSheet_",
+        "accessRequestIso_",
+        "accessRequestJsonArray_",
+        "accessRequestRows_",
+        "accessTempGrantRows_",
+        "accessRequestTypeLabel_",
+        "accessRequestStatusLabel_",
+        "accessRequestRoleIsPrivileged_",
+        "accessRequestApprovalPolicy_",
+        "accessRequestCanApprove_",
+        "accessRequestEligibleApprovers_",
+        "accessRequestPickApprover_",
+        "accessRequestValidateDates_",
+        "accessRequestPublic_",
+        "accessRequestActor_",
+        "accessRequestUserMap_",
+        "accessRequestRoleList_",
+        "accessRequestBuild_",
+        "accessRequestAppend_",
+        "submitAccessRequest_",
+        "accessRequestCreateFromReview_",
+        "getAccessRequestCenter_",
+        "getMyAccessRequests_",
+        "assignAccessRequestApprover_",
+        "accessRequestApplyUserState_",
+        "accessRequestApplyRemoval_",
+        "accessRequestImplement_",
+        "reviewAccessRequest_",
+        "cancelAccessRequest_",
+        "resubmitAccessRequest_",
+        "phase87Read_",
+        "phase87Audit_",
+        "phase87OpenGrants_",
+        "phase87RolePrivileged_",
+        "phase87PermanentAdminEmail_",
+        "phase87RequireAdmin_",
+        "phase87IsPrivileged_",
+        "phase87Fingerprint_",
+        "phase87ApprovalState_",
+        "phase87ResetApprovals_",
+        "phase87Candidates_",
+        "phase87AssertNoGrant_",
+        "phase87GuardDirectUser_",
+        "phase87ProtectAnchor_",
+        "phase87GuardRole_",
+        "phase87AssertRequestCurrent_",
+        "phase87ReviewPrivileged_",
+        "phase87AssertExpirySafe_",
+        "accessRequestApplyDueTemporaryGrants_",
+        "accessRequestCreateTempGrant_",
+        "phase87ExpiryWorker_",
+        "initializePhase87_",
+        "phase87TriggerReady_",
+        "getPrivilegedAccessCenter_",
+        "grantEmergencyAccess_",
+        "restorePrivilegedGrant_",
+        "reviewEmergencyAccess_",
+        "phase88Iso_",
+        "phase88DaysSince_",
+        "phase88Percent_",
+        "phase88RoleScope_",
+        "phase88RequestPrivileged_",
+        "phase88FastDepartmentNames_",
+        "phase88CacheKey_",
+        "phase88CacheGet_",
+        "phase88CachePut_",
+        "getIamReportingCenter_",
+        "exportIamReportingExcel_",
+        "exportIamReportingCsvBundle_",
+        "e91Read_",
+        "e91Actor_",
+        "e91CanPropose_",
+        "e91Text_",
+        "e91Responses_",
+        "e91Index_",
+        "e91Context_",
+        "e91Find_",
+        "e91EligibleOwners_",
+        "e91Date_",
+        "e91ValidateMetadata_",
+        "e91State_",
+        "e91Public_",
+        "getEvidenceManagement_",
+        "getEvidenceDetails_",
+        "proposeEvidenceMetadata_",
+        "e91ValidateReview_",
+        "e92MailEsc_",
+        "e92MailUrl_",
+        "e92MailShortType_",
+        "e92MailFormatDue_",
+        "e92MailInlineImages_",
+        "e92MailTemplate_",
+        "e92MailLog_",
+        "e92MailHistory_",
+        "e92MailSend_",
+        "sendEvidenceRequestTestEmail_",
+        "retryEvidenceRequestNotification_",
+        "e92Sheet_",
+        "e92Due_",
+        "e92Context_",
+        "e92Visible_",
+        "e92Find_",
+        "e92Responders_",
+        "e92State_",
+        "e92Public_",
+        "getEvidenceRequests_",
+        "getEvidenceRequestDetails_",
+        "createEvidenceRequest_",
+        "cancelEvidenceRequest_",
+        "e92PrepareSubmission_",
+        "e92SaveSubmission_",
+        "e92ValidateReview_",
+        "configureDashboardEmailLinkOnce_",
+        "deleteCustomDashboardRole_",
+        "e93Actor_",
+        "e93VisibleRecords_",
+        "e93AccessRecord_",
+        "e93Control_",
+        "e93Rows_",
+        "e93Reviews_",
+        "e93Find_",
+        "e93ReviewFor_",
+        "e93Public_",
+        "e93Evidence_",
+        "getControlTests_",
+        "createControlTest_",
+        "getControlTestDetails_",
+        "reviewControlTest_",
+        "e94Today_",
+        "e94Days_",
+        "e94Admin_",
+        "e94Rows_",
+        "e94Roles_",
+        "e94Users_",
+        "e94Can_",
+        "e94CanSee_",
+        "e94Notice_",
+        "e94Candidates_",
+        "e94Template_",
+        "e94Status_",
+        "archiveComplianceReminderLog_",
+        "getComplianceReminderSettings_",
+        "previewComplianceReminders_",
+        "setComplianceReminderSchedule_",
+        "phase94DailyReminderJob",
+        "runComplianceRemindersNow_",
+        "e94Run_",
+        "e95Actor_",
+        "e95Manage_",
+        "e95Key_",
+        "e95Source_",
+        "e95Events_",
+        "e95Materialize_",
+        "e95LatestRun_",
+        "getComplianceMonitoring_",
+        "e95WriteRun_",
+        "scanComplianceMonitoring_",
+        "updateComplianceMonitorException_",
+        "e95ScheduleState_",
+        "getComplianceMonitoringSchedule_",
+        "setComplianceMonitoringSchedule_",
+        "phase95DailyMonitoringJob",
+        "e96Actor_",
+        "e96Snapshot_",
+        "getAuditReadinessSnapshot_",
+        "e96CsvCell_",
+        "exportAuditReadinessCsv_",
+        "verifyDashboardLoginEmail",
+        "getLoginBrandLogo",
+        "dashboardTc06AssertSession_",
+        "dashboardSecureInvoke"
+      ],
+      "services": [
+        "SpreadsheetApp",
+        "DriveApp",
+        "Drive",
+        "PropertiesService",
+        "LockService",
+        "Session",
+        "Utilities",
+        "MailApp",
+        "ScriptApp",
+        "UrlFetchApp",
+        "HtmlService"
+      ]
+    },
+    {
+      "name": "DR.gs",
+      "bytes": 29422,
+      "sha256": "7601944566ff7613c044ae163bd5f29145a928850eae78014b7d24cf5e3d38db",
+      "lines": 600,
+      "functions": [
+        "tc25bkPreflight_",
+        "tc25bkRunOnce_",
+        "tc25bkDailyTrigger_",
+        "tc25bkCreateScheduleTrigger_",
+        "tc25bkInstallSchedule_",
+        "tc25bkDisableSchedule_",
+        "tc25bkAssertOwner_",
+        "tc25bkConfig_",
+        "tc25bkDriveMeta_",
+        "tc25bkMyDriveAcl_",
+        "tc25bkValidate_",
+        "tc25bkSha256_",
+        "tc25bkSheetInventory_",
+        "tc25bkCompareSheets_",
+        "tc25bkCopyEvidence_",
+        "tc25bkLog_",
+        "tc25bkNotify_",
+        "tc25bkExecute_"
+      ],
+      "services": [
+        "SpreadsheetApp",
+        "DriveApp",
+        "Drive",
+        "PropertiesService",
+        "LockService",
+        "Session",
+        "Utilities",
+        "MailApp",
+        "ScriptApp"
+      ]
+    },
+    {
+      "name": "Dummy data delete.gs",
+      "bytes": 12449,
+      "sha256": "80c7e4e645bacc3ba6c4113efb83ce85e09ff37e220324678d1bcca30c551e16",
+      "lines": 247,
+      "functions": [
+        "glc26Identity_",
+        "glc26Spreadsheet_",
+        "glc26Digest_",
+        "glc26Signature_",
+        "glc26Inventory_",
+        "glc26PlanDigest_",
+        "glc26Log_",
+        "goLiveCleanupPreview",
+        "goLiveCleanupPrepare",
+        "goLiveCleanupExecute",
+        "goLiveCleanupExecuteFromEditor"
+      ],
+      "services": [
+        "SpreadsheetApp",
+        "DriveApp",
+        "PropertiesService",
+        "LockService",
+        "Session",
+        "Utilities"
+      ]
+    },
+    {
+      "name": "Incident.gs",
+      "bytes": 8845,
+      "sha256": "4c151da34e1f1f62edde086f538c12cf39a07146bfbb29881da9840fe85df220",
+      "lines": 169,
+      "functions": [
+        "tc23IncidentAlertConfig_",
+        "tc23IncidentAlertLog_",
+        "tc23IncidentAlertStatusWrite_",
+        "tc23IncidentAlertSafeRisk_",
+        "tc23IncidentAlertEmail_",
+        "tc23NotifyHipaaIncidentCreated_",
+        "tc23IncidentAlertConfigurationCheck_"
+      ],
+      "services": [
+        "SpreadsheetApp",
+        "PropertiesService",
+        "Session",
+        "Utilities",
+        "MailApp"
+      ]
+    },
+    {
+      "name": "Index.html",
+      "bytes": 1791786,
+      "sha256": "186f5e6bbcc7bf4d241e8b8d6eca4875f36b2ec96ca010c1e4d3d29fe56b0b2d",
+      "lines": 32998,
+      "functions": [],
+      "services": []
+    },
+    {
+      "name": "Retention.gs",
+      "bytes": 16593,
+      "sha256": "dc3207afdbfbecad07c73129960d25dda6649ac17cfecdad3cbed61245822007",
+      "lines": 277,
+      "functions": [
+        "tc24Access_",
+        "tc24Sheet_",
+        "tc24Rows_",
+        "tc24SafeCellText_",
+        "tc24WriteLog_",
+        "tc24WithLock_",
+        "tc24Initialize_",
+        "tc24Policy_",
+        "tc24SavePolicy_",
+        "tc24Date_",
+        "tc24IsoDate_",
+        "tc24AddYears_",
+        "tc24HoldMap_",
+        "tc24RecordPolicy_",
+        "tc24GetCenter_",
+        "tc24RecordById_",
+        "tc24SetLegalHold_",
+        "tc24AssertDeletionAllowed_",
+        "tc24RequestDisposalReview_",
+        "tc24ReviewDisposalRequest_"
+      ],
+      "services": [
+        "SpreadsheetApp",
+        "LockService",
+        "Utilities"
+      ]
+    },
+    {
+      "name": "TC21_Audit_Archive_Module_V61(1).gs",
+      "bytes": 14841,
+      "sha256": "d56ecc2da6a9db4ddf4ed1cca434a0337159441959b69afc7f9532305d6700f7",
+      "lines": 304,
+      "functions": [
+        "tc21HashBytes_",
+        "tc21HashText_",
+        "tc21Time_",
+        "tc21Day_",
+        "tc21Actor_",
+        "tc21ArchiveConfig_",
+        "tc21Snapshot_",
+        "tc21ReadManifest_",
+        "tc21ValidateLastAnchor_",
+        "tc21MakeArchive_",
+        "tc21ArchiveConfigurationCheck_",
+        "tc21RunArchiveNow_",
+        "tc21VerifyLatestArchive_",
+        "tc21EnableDailyArchive_",
+        "tc21DisableDailyArchive_",
+        "tc21DailyAuditArchiveJob",
+        "tc21CheckSetup",
+        "tc21FirstBackupTest"
+      ],
+      "services": [
+        "DriveApp",
+        "PropertiesService",
+        "LockService",
+        "Session",
+        "Utilities",
+        "MailApp",
+        "ScriptApp"
+      ]
+    },
+    {
+      "name": "TC25_Backup_Controls.gs",
+      "bytes": 2088,
+      "sha256": "98bb763c3d5fb2d6d1c420a28a69bb2675840a6a163e62a23a30155f6f3766eb",
+      "lines": 91,
+      "functions": [
+        "tc25bkPreflight",
+        "tc25bkRunOnce",
+        "tc25bkInstallSchedule",
+        "tc25bkLockDiagnostic"
+      ],
+      "services": [
+        "PropertiesService",
+        "LockService",
+        "Session"
+      ]
+    },
+    {
+      "name": "TC25_DR_Integrity_Test.gs",
+      "bytes": 5595,
+      "sha256": "39bbe4299b3134e4e2ce9a330ab7537e5a0b03141bbffd3725a994dd073cd89e",
+      "lines": 111,
+      "functions": [
+        "tc25drVerifyRestoredEvidence"
+      ],
+      "services": [
+        "DriveApp",
+        "PropertiesService",
+        "Session",
+        "Utilities"
+      ]
+    },
+    {
+      "name": "TC25_Drive_Test.gs",
+      "bytes": 30775,
+      "sha256": "f2ab03f46251c2745881bcacacc5668c122f08054a385e3552e596dc6fd22e2a",
+      "lines": 1135,
+      "functions": [
+        "tc25TestSharedDriveAccess",
+        "tc25TestSharedDriveWrite",
+        "tc25VerifySharedDriveIdentity",
+        "tc25StagingStorageCheck",
+        "tc25CheckFolderProperties",
+        "tc25CheckStagingOwner",
+        "tc25TestEvidenceBackup",
+        "tc25TestEvidenceRecovery",
+        "tc25EvidenceInventoryCheck",
+        "tc25VerifyEvidenceFiles",
+        "tc25PrepareMigrationDummy",
+        "tc25TestDummyMigration",
+        "tc25TestDummyRollback",
+        "tc25VerifyBackupFolderIdentity",
+        "tc25CreateDummyDatabaseBackup",
+        "tc25TestDummyDatabaseRestore",
+        "tc25TestSourceCodeBackup",
+        "tc25TestSourceCodeRecovery"
+      ],
+      "services": [
+        "SpreadsheetApp",
+        "DriveApp",
+        "Drive",
+        "PropertiesService",
+        "Session",
+        "Utilities"
+      ]
+    },
+    {
+      "name": "appsscript.json",
+      "bytes": 354,
+      "sha256": "835d025f5e215174aa8d3020cbc7ae068a9fa415fbee0b9eb119fb9a2816d99a",
+      "lines": 18,
+      "functions": [],
+      "services": []
+    },
+    {
+      "name": "tc09TestSelfApproval.gs",
+      "bytes": 1508,
+      "sha256": "e0a2f51ef3c28c22beb539438f56a896391eebe716bb2752b1b6c679f167ee20",
+      "lines": 57,
+      "functions": [
+        "tc09TestSelfApproval"
+      ],
+      "services": []
+    }
+  ],
+  "protectedOperations": [
+    {
+      "name": "migrateMasterForSubDepartment",
+      "status": "not_migrated"
+    },
+    {
+      "name": "tc24GetCenter",
+      "status": "not_migrated"
+    },
+    {
+      "name": "tc24Initialize",
+      "status": "not_migrated"
+    },
+    {
+      "name": "tc24SavePolicy",
+      "status": "not_migrated"
+    },
+    {
+      "name": "tc24SetLegalHold",
+      "status": "not_migrated"
+    },
+    {
+      "name": "tc24RequestDisposalReview",
+      "status": "not_migrated"
+    },
+    {
+      "name": "tc24ReviewDisposalRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getRecords",
+      "status": "ported_read_operation"
+    },
+    {
+      "name": "getLookupValues",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getDependentLookupValues",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getFrameworkControls",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getCommonControlAreas",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getControlsByCommonControlArea",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getFrameworkControlById",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getFilterOptions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getDashboardData",
+      "status": "ported_read_summary"
+    },
+    {
+      "name": "getRecordById",
+      "status": "ported_read_operation"
+    },
+    {
+      "name": "deleteComplianceRecord",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getDeletedRecordsForRecovery",
+      "status": "not_migrated"
+    },
+    {
+      "name": "restoreComplianceRecord",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getRecordHistory",
+      "status": "ported_read_operation"
+    },
+    {
+      "name": "saveComplianceDraft",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getComplianceDrafts",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getComplianceDraftById",
+      "status": "not_migrated"
+    },
+    {
+      "name": "deleteComplianceDraft",
+      "status": "not_migrated"
+    },
+    {
+      "name": "markComplianceDraftSubmitted",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getLogoDataUrl",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getConfig",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getRecordTypeConfig",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getNextRecordIdPreview",
+      "status": "not_migrated"
+    },
+    {
+      "name": "createComplianceRecord",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testCreateRecordAPI",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testCreateComplianceRecord",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testMasterSheet",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testLookupSheet",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testDashboardData",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testFilterOptions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testLogo",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testRiskCalculation",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testFrameworkControlMaster",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testDynamicLookupIntegration",
+      "status": "not_migrated"
+    },
+    {
+      "name": "runFinalSystemTest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testCrossFrameworkControlMapping",
+      "status": "not_migrated"
+    },
+    {
+      "name": "setupMakerCheckerSheets",
+      "status": "not_migrated"
+    },
+    {
+      "name": "submitRecordChangeRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getChangeRequestsForCurrentUser",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getChangeRequestDetails",
+      "status": "not_migrated"
+    },
+    {
+      "name": "approveRecordChangeRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "rejectRecordChangeRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "returnRecordChangeRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "runMakerCheckerSystemTest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getAccessContext",
+      "status": "not_migrated"
+    },
+    {
+      "name": "changeDashboardPassword",
+      "status": "not_migrated"
+    },
+    {
+      "name": "adminResetDashboardPassword",
+      "status": "not_migrated"
+    },
+    {
+      "name": "listDashboardUsers",
+      "status": "not_migrated"
+    },
+    {
+      "name": "listRoleDefinitions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "saveDashboardUser",
+      "status": "not_migrated"
+    },
+    {
+      "name": "saveRoleDefinition",
+      "status": "not_migrated"
+    },
+    {
+      "name": "initializeCustomRoleRbac",
+      "status": "not_migrated"
+    },
+    {
+      "name": "initializeRbacOnce",
+      "status": "not_migrated"
+    },
+    {
+      "name": "reassignPendingChangeRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getReturnedRequestForRevision",
+      "status": "not_migrated"
+    },
+    {
+      "name": "deleteDashboardUser",
+      "status": "not_migrated"
+    },
+    {
+      "name": "deleteDashboardUserV9",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getCrossFrameworkExplorerBootstrap",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getCrossFrameworkMappings",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testCrossFrameworkExplorerV16",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getFrameworkControlsAliasSafe",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getCrossFrameworkExplorerBootstrapV20",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getCrossFrameworkMappingsV20",
+      "status": "not_migrated"
+    },
+    {
+      "name": "testCrossFrameworkExplorerV20",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getPreviousRecordOptions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getAnalyticsRecords",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getIAMDepartmentOptions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "initializeIamPhase",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getIAMWorkspace",
+      "status": "not_migrated"
+    },
+    {
+      "name": "submitIAMResponse",
+      "status": "not_migrated"
+    },
+    {
+      "name": "reviewIAMResponse",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getIAMEvidence",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getDashboardSecurityCenter",
+      "status": "not_migrated"
+    },
+    {
+      "name": "adminRevokeDashboardSession",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getMyDashboardSessions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "revokeMyDashboardSession",
+      "status": "not_migrated"
+    },
+    {
+      "name": "revokeOtherDashboardSessions",
+      "status": "not_migrated"
+    },
+    {
+      "name": "authorizePhase83MailOnce",
+      "status": "not_migrated"
+    },
+    {
+      "name": "startAccessReviewCycle",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getAccessReviewCenter",
+      "status": "not_migrated"
+    },
+    {
+      "name": "submitAccessReviewDecision",
+      "status": "not_migrated"
+    },
+    {
+      "name": "submitAccessRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getAccessRequestCenter",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getMyAccessRequests",
+      "status": "not_migrated"
+    },
+    {
+      "name": "assignAccessRequestApprover",
+      "status": "not_migrated"
+    },
+    {
+      "name": "reviewAccessRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "cancelAccessRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "resubmitAccessRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "initializePhase87",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getPrivilegedAccessCenter",
+      "status": "not_migrated"
+    },
+    {
+      "name": "grantEmergencyAccess",
+      "status": "not_migrated"
+    },
+    {
+      "name": "restorePrivilegedGrant",
+      "status": "not_migrated"
+    },
+    {
+      "name": "reviewEmergencyAccess",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getIamReportingCenter",
+      "status": "not_migrated"
+    },
+    {
+      "name": "exportIamReportingExcel",
+      "status": "not_migrated"
+    },
+    {
+      "name": "exportIamReportingCsvBundle",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getEvidenceManagement",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getEvidenceDetails",
+      "status": "not_migrated"
+    },
+    {
+      "name": "proposeEvidenceMetadata",
+      "status": "not_migrated"
+    },
+    {
+      "name": "sendEvidenceRequestTestEmail",
+      "status": "not_migrated"
+    },
+    {
+      "name": "retryEvidenceRequestNotification",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getEvidenceRequests",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getEvidenceRequestDetails",
+      "status": "not_migrated"
+    },
+    {
+      "name": "createEvidenceRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "cancelEvidenceRequest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "configureDashboardEmailLinkOnce",
+      "status": "not_migrated"
+    },
+    {
+      "name": "deleteCustomDashboardRole",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getControlTests",
+      "status": "not_migrated"
+    },
+    {
+      "name": "createControlTest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getControlTestDetails",
+      "status": "not_migrated"
+    },
+    {
+      "name": "reviewControlTest",
+      "status": "not_migrated"
+    },
+    {
+      "name": "archiveComplianceReminderLog",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getComplianceReminderSettings",
+      "status": "not_migrated"
+    },
+    {
+      "name": "previewComplianceReminders",
+      "status": "not_migrated"
+    },
+    {
+      "name": "setComplianceReminderSchedule",
+      "status": "not_migrated"
+    },
+    {
+      "name": "runComplianceRemindersNow",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getComplianceMonitoring",
+      "status": "not_migrated"
+    },
+    {
+      "name": "scanComplianceMonitoring",
+      "status": "not_migrated"
+    },
+    {
+      "name": "updateComplianceMonitorException",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getComplianceMonitoringSchedule",
+      "status": "not_migrated"
+    },
+    {
+      "name": "setComplianceMonitoringSchedule",
+      "status": "not_migrated"
+    },
+    {
+      "name": "getAuditReadinessSnapshot",
+      "status": "not_migrated"
+    },
+    {
+      "name": "exportAuditReadinessCsv",
+      "status": "not_migrated"
+    }
+  ],
+  "frontendRpcMethods": [
+    "adminRevokeDashboardSession",
+    "approveRecordChangeRequest",
+    "archiveComplianceReminderLog",
+    "assignAccessRequestApprover",
+    "cancelAccessRequest",
+    "cancelEvidenceRequest",
+    "changeDashboardPassword",
+    "completeDashboardPasswordReset",
+    "createComplianceRecord",
+    "createControlTest",
+    "createDashboardPassword",
+    "createEvidenceRequest",
+    "deleteComplianceDraft",
+    "deleteComplianceRecord",
+    "deleteCustomDashboardRole",
+    "deleteDashboardUserV9",
+    "exportAuditReadinessCsv",
+    "exportIamReportingCsvBundle",
+    "exportIamReportingExcel",
+    "getAccessRequestCenter",
+    "getAccessReviewCenter",
+    "getAnalyticsRecords",
+    "getAuditReadinessSnapshot",
+    "getChangeRequestDetails",
+    "getChangeRequestsForCurrentUser",
+    "getComplianceDraftById",
+    "getComplianceDrafts",
+    "getComplianceMonitoring",
+    "getComplianceMonitoringSchedule",
+    "getComplianceReminderSettings",
+    "getControlTestDetails",
+    "getControlTests",
+    "getControlsByCommonControlArea",
+    "getCrossFrameworkExplorerBootstrapV20",
+    "getCrossFrameworkMappingsV20",
+    "getDashboardData",
+    "getDashboardSecurityCenter",
+    "getDeletedRecordsForRecovery",
+    "getEvidenceDetails",
+    "getEvidenceManagement",
+    "getEvidenceRequestDetails",
+    "getEvidenceRequests",
+    "getFilterOptions",
+    "getFrameworkControlsAliasSafe",
+    "getIAMDepartmentOptions",
+    "getIAMEvidence",
+    "getIAMWorkspace",
+    "getIamReportingCenter",
+    "getLoginBrandLogo",
+    "getLoginGatewayContext",
+    "getLogoDataUrl",
+    "getLookupValues",
+    "getMyAccessRequests",
+    "getMyDashboardSessions",
+    "getNextRecordIdPreview",
+    "getPreviousRecordOptions",
+    "getPrivilegedAccessCenter",
+    "getRecordById",
+    "getRecordHistory",
+    "getRecordTypeConfig",
+    "getRecords",
+    "getReturnedRequestForRevision",
+    "grantEmergencyAccess",
+    "heartbeatDashboardSession",
+    "initializePhase87",
+    "listDashboardUsers",
+    "listRoleDefinitions",
+    "loginDashboardWithCredentials",
+    "markComplianceDraftSubmitted",
+    "previewComplianceReminders",
+    "proposeEvidenceMetadata",
+    "reassignPendingChangeRequest",
+    "rejectRecordChangeRequest",
+    "requestDashboardPasswordResetOtp",
+    "restoreComplianceRecord",
+    "restorePrivilegedGrant",
+    "resubmitAccessRequest",
+    "resumeDashboardSession",
+    "retryEvidenceRequestNotification",
+    "returnRecordChangeRequest",
+    "reviewAccessRequest",
+    "reviewControlTest",
+    "reviewEmergencyAccess",
+    "reviewIAMResponse",
+    "revokeDashboardSession",
+    "revokeMyDashboardSession",
+    "revokeOtherDashboardSessions",
+    "runComplianceRemindersNow",
+    "saveComplianceDraft",
+    "saveDashboardUser",
+    "saveRoleDefinition",
+    "scanComplianceMonitoring",
+    "sendEvidenceRequestTestEmail",
+    "setComplianceMonitoringSchedule",
+    "setComplianceReminderSchedule",
+    "startAccessReviewCycle",
+    "submitAccessRequest",
+    "submitAccessReviewDecision",
+    "submitIAMResponse",
+    "submitRecordChangeRequest",
+    "updateComplianceMonitorException",
+    "verifyDashboardLoginEmail",
+    "verifyDashboardPassword",
+    "verifyDashboardPasswordResetOtp"
+  ],
+  "pureRulesPorted": [
+    "rbacEmptyPermissions_",
+    "rbacNormalizePermissions_",
+    "rbacBuiltInRoleSeeds_",
+    "rbacSafeJsonArray_",
+    "rbacNormalizeRole_",
+    "iamParseDepartments_",
+    "iamDepartmentKey_",
+    "iamCanReadRecord_",
+    "dashboardPasswordNormalizeForBlocklist_",
+    "dashboardPasswordIdentityTokens_",
+    "dashboardPasswordHasObviousSequence_",
+    "dashboardPasswordHasDateLikePattern_",
+    "dashboardPasswordPolicy_",
+    "phase3Value_",
+    "phase3Risk_",
+    "phase3Status_",
+    "phase3IsTerminal_",
+    "phase3IsOpen_",
+    "phase3Date_",
+    "phase3DayKey_",
+    "phase3Overdue_",
+    "phase3PendingEvidence_",
+    "phase3FrameworkKey_",
+    "phase3FrameworkLabel_"
+  ],
+  "manifest": {
+    "timeZone": "Asia/Kolkata",
+    "dependencies": {
+      "enabledAdvancedServices": [
+        {
+          "userSymbol": "Drive",
+          "serviceId": "drive",
+          "version": "v3"
+        }
+      ]
+    },
+    "webapp": {
+      "executeAs": "USER_DEPLOYING",
+      "access": "DOMAIN"
+    },
+    "exceptionLogging": "STACKDRIVER",
+    "runtimeVersion": "V8"
+  }
+}
